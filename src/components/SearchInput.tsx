@@ -5,6 +5,8 @@ const Input = styled.input`
   padding: 10px;
   margin-bottom: 20px;
   font-size: 20px;
+  border-radius: 10px;
+  border: 2px solid #808080;
 `;
 
 interface Props {

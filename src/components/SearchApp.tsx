@@ -37,6 +37,9 @@ function SearchApp() {
   ) => {
     const search = event.target.value;
     setSearchAlbum(search);
+    if (!search) {
+      setAlbums(defaultAlbums);
+    }
     try {
       if (!search) return;
 
