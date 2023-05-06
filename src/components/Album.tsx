@@ -41,13 +41,12 @@ const Album = ({ rotatedAlbums }: Props) => {
               artworkUrl100,
             }: AlbumType) => (
               <AlbumListItem key={collectionId}>
-                <AlbumArtwork
-                  src={artworkUrl100}
-                  alt={`${collectionName} artwork`}
-                />
+                {artworkUrl100 ? (
+                  <AlbumArtwork src={artworkUrl100} alt={`${collectionName}`} />
+                ) : null}
                 <div>
-                  <AlbumName>{collectionName}</AlbumName>
-                  <p>{artistName}</p>
+                  <AlbumName>{collectionName ?? "No Title"}</AlbumName>
+                  <p>{artistName ?? "No Artist Name"}</p>
                 </div>
               </AlbumListItem>
             )

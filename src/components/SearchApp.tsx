@@ -19,7 +19,7 @@ function SearchApp() {
     useState<AlbumType[]>(defaultAlbums);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
+    const intervalId: NodeJS.Timer = setInterval(() => {
       if (albums.length > 0) {
         const [firstAlbum, ...restAlbums] = albums; // get first element and all others
         const newRotatedAlbums = [...rotatedAlbums.slice(1), firstAlbum]; // get second element and all others 2,3,4,5, 1
@@ -43,8 +43,8 @@ function SearchApp() {
       const response = await axios.get(`${API_URL}?term=${search}`);
 
       const albums: AlbumType[] = response.data.results
-        .filter((result: any) => result.wrapperType === "track")
-        .map((result: any) => ({
+        .filter((result: AlbumType) => result.wrapperType === "track")
+        .map((result: AlbumType) => ({
           collectionId: result.collectionId,
           collectionName: result.collectionName,
           artistName: result.artistName,
@@ -68,7 +68,7 @@ function SearchApp() {
         type="text"
         value={searchAlbum}
         onChange={handleSearchChange}
-        placeholder="Search for an artist"
+        placeholder="Search for albums"
       />
       <Album albums={albums} rotatedAlbums={rotatedAlbums} />
     </Container>

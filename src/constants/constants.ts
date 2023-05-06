@@ -1,34 +1,26 @@
+import { AlbumType } from "../types";
+
 export const API_URL = "https://itunes.apple.com/search";
 
-export const defaultAlbums = [
+export const defaultAlbums: AlbumType[] = [
   {
     collectionId: 1,
-    collectionName: "",
-    artistName: "A",
-    artworkUrl100: "",
+    collectionName: "A",
   },
   {
     collectionId: 2,
-    collectionName: "",
-    artistName: "B",
-    artworkUrl100: "",
+    collectionName: "B",
   },
   {
     collectionId: 3,
-    collectionName: "",
-    artistName: "C",
-    artworkUrl100: "",
+    collectionName: "C",
   },
   {
     collectionId: 4,
-    collectionName: "",
-    artistName: "D",
-    artworkUrl100: "",
+    collectionName: "D",
   },
   {
     collectionId: 5,
-    collectionName: "",
-    artistName: "E",
-    artworkUrl100: "",
+    collectionName: "E",
   },
 ];
