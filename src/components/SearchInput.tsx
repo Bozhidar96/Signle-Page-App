@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
 
 const Input = styled.input`
@@ -15,7 +15,14 @@ interface Props {
 }
 
 const SearchInput = ({ type, value, onChange, placeholder }: Props) => {
-  return <Input type={type} value={value} onChange={onChange} placeholder={placeholder} />;
+  return (
+    <Input
+      type={type}
+      value={value}
+      onChange={onChange}
+      placeholder={placeholder}
+    />
+  );
 };
 
 export default SearchInput;

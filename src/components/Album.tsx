@@ -1,5 +1,4 @@
-import React from 'react';
-import { AlbumType } from '../types';
+import { AlbumType } from "../types";
 import styled from "styled-components";
 
 const AlbumList = styled.ul`
@@ -31,18 +30,29 @@ interface Props {
 }
 
 const Album = ({ rotatedAlbums }: Props) => {
-  console.log("-------------", rotatedAlbums)
   return (
     <AlbumList>
-      {rotatedAlbums && rotatedAlbums.length > 0 ? rotatedAlbums.map(({ collectionId, collectionName, artistName, artworkUrl100 }: AlbumType) => (
-        <AlbumListItem key={`${collectionId} ${collectionName} ${artistName}` }>
-          <AlbumArtwork src={artworkUrl100} alt={`${collectionName} artwork`} />
-          <div>
-            <AlbumName>{collectionName}</AlbumName>
-            <p>{artistName}</p>
-          </div>
-        </AlbumListItem>
-      )) : null } 
+      {rotatedAlbums && rotatedAlbums.length > 0
+        ? rotatedAlbums.map(
+            ({
+              collectionId,
+              collectionName,
+              artistName,
+              artworkUrl100,
+            }: AlbumType) => (
+              <AlbumListItem key={collectionId}>
+                <AlbumArtwork
+                  src={artworkUrl100}
+                  alt={`${collectionName} artwork`}
+                />
+                <div>
+                  <AlbumName>{collectionName}</AlbumName>
+                  <p>{artistName}</p>
+                </div>
+              </AlbumListItem>
+            )
+          )
+        : null}
     </AlbumList>
   );
 };
