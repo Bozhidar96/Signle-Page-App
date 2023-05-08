@@ -1,9 +1,13 @@
 import { render, screen } from "@testing-library/react";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import SearchApp from "../components/SearchApp";
-import defaultAlbums from "../constants/constants";
+import { defaultAlbums } from "../constants/constants";
 
 jest.mock("axios");
+
+jest.spyOn(axios, "get").mockResolvedValueOnce({
+  data: { defaultAlbums },
+} as AxiosResponse);
 
 describe("SearchApp component", () => {
   afterEach(() => {
@@ -18,8 +22,6 @@ describe("SearchApp component", () => {
   });
 
   it("it returns default albums", async () => {
-    axios.get.mockResolvedValueOnce({ data: { defaultAlbums } });
-
     render(<SearchApp />);
     const defaultAlbum1 = await screen.findByText("A");
     const defaultAlbum2 = await screen.findByText("B");

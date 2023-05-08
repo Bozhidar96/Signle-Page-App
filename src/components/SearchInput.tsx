@@ -16,7 +16,7 @@ interface Props {
   placeholder: string;
 }
 
-const SearchInput = ({ type, value, onChange, placeholder }: Props) => {
+export const SearchInput = ({ type, value, onChange, placeholder }: Props) => {
   return (
     <Input
       type={type}

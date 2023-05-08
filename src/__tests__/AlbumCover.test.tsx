@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import AlbumCover from "../components/AlbumCover";
+import { AlbumCover } from "../components/AlbumCover";
 
 describe("AlbumCover", () => {
   it("renders the image with correct props", () => {
