@@ -10,8 +10,9 @@ const AlbumCoverImage = styled.img`
   max-width: 100%;
 `;
 
-const AlbumCover: React.FC<AlbumCoverProps> = ({ imageUrl, altText }) => {
+export const AlbumCover: React.FC<AlbumCoverProps> = ({
+  imageUrl,
+  altText,
+}) => {
   return <AlbumCoverImage src={imageUrl} alt={altText} />;
 };
-
-export default AlbumCover;

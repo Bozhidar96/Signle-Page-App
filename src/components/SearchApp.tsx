@@ -12,7 +12,7 @@ const Container = styled.div`
   align-items: center;
 `;
 
-function SearchApp() {
+export function SearchApp() {
   const [searchAlbum, setSearchAlbum] = useState("");
   const [albums, setAlbums] = useState<AlbumType[]>([]);
   const [rotatedAlbums, setRotatedAlbums] =

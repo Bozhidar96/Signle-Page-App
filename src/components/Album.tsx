@@ -44,11 +44,11 @@ const AlbumName = styled.div`
 `;
 
 interface Props {
-  albums: AlbumType[];
   rotatedAlbums: AlbumType[];
+  albums?: AlbumType[];
 }
 
-const Album = ({ rotatedAlbums }: Props) => {
+export const Album = ({ rotatedAlbums }: Props) => {
   return (
     <Container>
       <AlbumList>
