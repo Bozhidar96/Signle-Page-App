@@ -58,8 +58,11 @@ export function SearchApp() {
         (obj: AlbumType, index: number, arr: AlbumType[]) =>
           arr.findIndex((o) => o.collectionId === obj.collectionId) === index
       ); // remove duplicates findIndex?
-
-      setAlbums(uniqueAlbums);
+      const [firstAlbum, ...restAlbums] = uniqueAlbums;
+      const sortedAlbums = [...restAlbums, firstAlbum].sort((a, b) =>
+        a.collectionName.localeCompare(b.collectionName)
+      );
+      setAlbums(sortedAlbums);
     } catch (error) {
       console.error(error);
     }
