@@ -41,8 +41,6 @@ export function SearchApp() {
       setAlbums(defaultAlbums);
     }
     try {
-      if (!search) return;
-
       const response = await axios.get(`${API_URL}?term=${search}`);
 
       const albums: AlbumType[] = response.data.results
@@ -58,8 +56,11 @@ export function SearchApp() {
         (obj: AlbumType, index: number, arr: AlbumType[]) =>
           arr.findIndex((o) => o.collectionId === obj.collectionId) === index
       ); // remove duplicates findIndex?
-
-      setAlbums(uniqueAlbums);
+      const [firstAlbum, ...restAlbums] = uniqueAlbums;
+      const sortedAlbums = [...restAlbums, firstAlbum].sort((a, b) =>
+        a.collectionName.localeCompare(b.collectionName)
+      );
+      setAlbums(sortedAlbums);
     } catch (error) {
       console.error(error);
     }
