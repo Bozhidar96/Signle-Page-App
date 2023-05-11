@@ -41,8 +41,6 @@ export function SearchApp() {
       setAlbums(defaultAlbums);
     }
     try {
-      if (!search) return;
-
       const response = await axios.get(`${API_URL}?term=${search}`);
 
       const albums: AlbumType[] = response.data.results
